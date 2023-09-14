@@ -1,0 +1,112 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+.encabezadoPrincipal,footer {
+    background-color: rgb(51, 24, 168);
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color:white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.subEncabezado{
+    color: rgb(24, 24, 119);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-inline: 1rem;
+}
+
+#materias{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+#materias1{
+    grid-template-columns: repeat(1, 900px);
+    grid-template-rows: repeat(8, 90px);
+    background-color: rgb(51, 24, 168);
+    border-bottom: 1px;
+    padding: 2rem;
+}
+
+#materias1 div{
+    margin-top: 2rem;
+}
+
+.articulos{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(2, 500px);
+    padding: 2rem;
+    background-color: rgb(195, 255, 127);
+    border: 2px solid black;
+    margin: 0;
+}
+
+.botton{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(36, 36, 90);
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+}
+
+.parrafo{
+    background-color: aqua;
+}
+
+.Ventana-enemergente{
+    margin: auto;
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    background-color: blueviolet;
+    color: white;
+    z-index: 100;
+}
+.Ventana-enemergente div{
+    margin:auto;
+    padding: 10px;
+    text-align: center ;
+}
+
+.Ventana-emergente-boton{
+    cursor: pointer;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: bolder;
+}
+
+.EstadoActual{
+ text-align: center;
+ font-weight: bolder;
+}
+
+/*
+.botonConsultaNota{
+    margin:auto;
+    text-align: center ;
+    padding: 1rem;
+}*/

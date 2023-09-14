@@ -1,8 +1,7 @@
 
 /*consultar el estado academico del estudiante 
 
-Debo incluir objetos/listo, dom/listo, Array/listo, eventos/listo, funciones/listo ,
-bucles/, 
+Debo incluir objetos/listo, dom/listo, Array/listo, eventos/listo, funciones/listo, bucles/listo, 
 métodos/, 
 una libreria, promesas con fetch, cargar datos desde JSON local. */
 
@@ -98,7 +97,11 @@ planDeEstudio.forEach((item) => {
                     } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
                         ventanaEmergente3.innerText="¡Felicidades! Promocionaste la materia";
                     } else {
-                        ventanaEmergente3.innerText="Intentalo nuevamente";
+                        while((primerNota.value != Number && segundaNota.value !=Number)||(primerNota.value >10 && segundaNota.value >10)) {
+                            ventanaEmergente3.innerText="Intentalo nuevamente";
+                            notafinal()
+                            break;
+                        }
                     }
 
                 };

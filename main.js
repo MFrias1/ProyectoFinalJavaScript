@@ -37,9 +37,8 @@ planDeEstudio.forEach((item) => {
 
         Swal.fire({
             title: 'Consulta tu estado académico',
-            text: 'Ingresa la nota de tu primer parcial',
-            html: "<div> <input id=primerNota>  coloca tu nota de primer parcial </input> <input id=segundaNota>  coloca tu nota de segundo parcial </input> </div>",
-            confirmButtonColor: '#3085d6',
+            html: "<div><input id=primerNota> coloca tu nota de primer parcial </input> <input id=segundaNota> coloca tu nota de segundo parcial </input> </div>",
+            confirmButtonColor: 'rgb(36, 36, 90);',
             confirmButtonText: 'Consultar',
         }).then((result) => {
             if (result.isConfirmed) {

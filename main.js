@@ -47,7 +47,7 @@ planDeEstudio.forEach((item) => {
                     if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4) || (primerNota.value <= 3 && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
                         planDeEstudio.estado = "Reprobado";
                         localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado)); // Guarda el estado en localStorage
-                        Swal.fire(html = `<div>No aprobaste, deberás recursar la materia el próximo cuatrimestre'</div>`) 
+                        Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`) 
                         div.innerText = `Estado : ${planDeEstudio.estado}
                         `;
 

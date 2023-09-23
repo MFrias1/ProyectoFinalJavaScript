@@ -44,7 +44,7 @@ planDeEstudio.forEach((item) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 function notafinal() {
-                    if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4)) {
+                    if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4) || (primerNota.value <= 3 && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
                         Swal.fire(text = "No aprobaste, deberás recursar la materia el próximo cuatrimestre")
                     } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                         Swal.fire(text = "Deberás rendir un examen final")

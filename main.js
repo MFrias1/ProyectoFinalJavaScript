@@ -45,24 +45,24 @@ planDeEstudio.forEach((item) => {
 
                 function notafinal() {
                     if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4) || (primerNota.value <= 3 && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
-                        planDeEstudio.estado = "Reprobado";
-                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado)); // Guarda el estado en localStorage
+                        this.estado = "Reprobado";
+                        localStorage.setItem("estado", JSON.stringify(this.estado)); // Guarda el estado en localStorage
                         Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`) 
-                        div.innerText = `Estado : ${planDeEstudio.estado}
+                        div.innerText = `Estado : ${this.estado}
                         `;
 
                     } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
-                        planDeEstudio.estado = "Regular";
+                        this.estado = "Regular";
                         Swal.fire(text = "Deberás rendir un examen final")
-                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado));  // Guarda el estado en localStorage
-                        div.innerText=`Estado : ${planDeEstudio.estado} 
+                        localStorage.setItem("estado", JSON.stringify(this.estado));  // Guarda el estado en localStorage
+                        div.innerText=`Estado : ${this.estado} 
                         `;
 
                     } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
-                        planDeEstudio.estado = "Promocionado";
+                        this.estado = "Promocionado";
                         Swal.fire(text = "¡Felicidades! Promocionaste la materia")
-                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado));  // Guarda el estado en localStorage
-                        div.innerText = `Estado : ${planDeEstudio.estado}`;
+                        localStorage.setItem("estado", JSON.stringify(this.estado));  // Guarda el estado en localStorage
+                        div.innerText = `Estado : ${this.estado}`;
 
                     } else {
                         while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value > 10 && segundaNota.value > 10)) {

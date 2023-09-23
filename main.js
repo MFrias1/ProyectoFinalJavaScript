@@ -34,6 +34,7 @@ planDeEstudio.forEach((item) => {
 
     //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
+
         Swal.fire({
             title: 'Consulta tu estado académico',
             text: 'Ingresa la nota de tu primer parcial',
@@ -42,24 +43,30 @@ planDeEstudio.forEach((item) => {
             confirmButtonText: 'Consultar',
         }).then((result) => {
             if (result.isConfirmed) {
+
                 function notafinal() {
                     if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4) || (primerNota.value <= 3 && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
                         planDeEstudio.estado = "Reprobado";
-                        Swal.fire(html = `<div>No aprobaste, deberás recursar la materia el próximo cuatrimestre'</div>`)
+                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado)); // Guarda el estado en localStorage
+                        Swal.fire(html = `<div>No aprobaste, deberás recursar la materia el próximo cuatrimestre'</div>`) 
                         div.innerText = `Estado : ${planDeEstudio.estado}
                         `;
+                        planDeEstudio.estado =JSON.parse(localStorage.getItem("estado"));
 
                     } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                         planDeEstudio.estado = "Regular";
                         Swal.fire(text = "Deberás rendir un examen final")
+                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado));  // Guarda el estado en localStorage
                         div.innerText=`Estado : ${planDeEstudio.estado} 
                         `;
-                        
+                        planDeEstudio.estado =JSON.parse(localStorage.getItem("estado"));
 
                     } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
                         planDeEstudio.estado = "Promocionado";
                         Swal.fire(text = "¡Felicidades! Promocionaste la materia")
+                        localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado));  // Guarda el estado en localStorage
                         div.innerText = `Estado : ${planDeEstudio.estado}`;
+                        planDeEstudio.estado =JSON.parse(localStorage.getItem("estado"));
 
                     } else {
                         while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value > 10 && segundaNota.value > 10)) {
@@ -68,12 +75,13 @@ planDeEstudio.forEach((item) => {
                             break;
                         }
                     }
+                    
                 };
-                notafinal();
-                localStorage.setItem("estado", JSON.stringify(planDeEstudio.estado));  // Guarda el estado en localStorage
-                localStorage.getItem("estado", JSON.stringify(planDeEstudio.estado)); // Cargar el estado almacenado en localStorage al cargar la página
+             notafinal();
             };
         })
+                
+        
 
     })
 });

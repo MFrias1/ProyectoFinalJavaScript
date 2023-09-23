@@ -1,7 +1,7 @@
 
 /*consultar el estado academico del estudiante 
 
-/*Debo incluir métodos/, promesas con fetch/, cargar datos desde JSON local. */
+/*Debo incluir promesas con fetch/, cargar datos desde JSON local. */
 
 //Listado de materias con Array/objetos.
 const planDeEstudio = [
@@ -32,12 +32,11 @@ planDeEstudio.forEach((item) => {
 
     materias.append(div);
 
-    //VENTANA EMERGENTE
-
+    //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
         Swal.fire({
             title: 'Consulta tu estado académico',
-            text: 'ingresa la note de tu primer parcial',
+            text: 'Ingresa la nota de tu primer parcial',
             html: "<div> <input id=primerNota>  coloca tu nota de primer parcial </input> <input id=segundaNota>  coloca tu nota de segundo parcial </input> </div>",
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Consultar',
@@ -45,11 +44,24 @@ planDeEstudio.forEach((item) => {
             if (result.isConfirmed) {
                 function notafinal() {
                     if ((primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value < 4 && segundaNota.value < 4) || (primerNota.value <= 3 && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
-                        Swal.fire(text = "No aprobaste, deberás recursar la materia el próximo cuatrimestre")
+                        planDeEstudio.estado = "Reprobado";
+                        Swal.fire(html = `<div>No aprobaste, deberás recursar la materia el próximo cuatrimestre'</div> ${planDeEstudio.estado}`)
+                        div.innerText=`
+                            Estado : ${planDeEstudio.estado} 
+                        `;
+
                     } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
+                        planDeEstudio.estado = "Regular";
                         Swal.fire(text = "Deberás rendir un examen final")
+                        div.innerText=`
+                            Estado : ${planDeEstudio.estado} 
+                        `;
                     } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
+                        planDeEstudio.estado = "Promocionado";
                         Swal.fire(text = "¡Felicidades! Promocionaste la materia")
+                        div.innerText=`
+                            Estado : ${planDeEstudio.estado} 
+                        `;
                     } else {
                         while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value > 10 && segundaNota.value > 10)) {
                             Swal.fire(text = "Intentalo nuevamente")
@@ -63,3 +75,7 @@ planDeEstudio.forEach((item) => {
         })
     })
 });
+
+sessionStorage.setItem("materia","Orga1");
+let materia = sessionStorage.getItem(materia);
+sessionStorage.clear();

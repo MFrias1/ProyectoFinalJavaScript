@@ -5,9 +5,9 @@
 
 //Listado de materias con Array/objetos.
 const planDeEstudio = [
-    { materia: "Matemática para informática I ", año: "primer año", estado: "Consultar" }, { materia: "Organización de computadoras II", año: "primer año", estado: "Consultar" }, { materia: "Sistemas de comunicación ", año: "primer año", estado: "Consultar" }, { materia: "Inglés I", año: "primer año", estado: "Consultar" },
-    { materia: "Introducción a lógica y problemas computacionales ", año: "primer año", estado: "Consultar" }, { materia: "Sistemas de comunicación", año: "primer año", estado: "Consultar" }, { materia: "Taller de intérpretes de comandos", año: "primer año", estado: "Consultar" },
-    { materia: "Organización de computadoras I ", año: "primer año", estado: "Consultar" }
+    { materia: "Matemática para informática I ", Año: "Primer año", Estado: "Consultar" }, { materia: "Organización de computadoras II", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación ", Año: "Primer año", estado: "Consultar" }, { materia: "Inglés I", Año: "primer año", Estado: "Consultar" },
+    { materia: "Introducción a lógica y problemas computacionales ", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación", Año: "Primer año", Estado: "Consultar" }, { materia: "Taller de intérpretes de comandos", Año: "Primer año", Estado: "Consultar" },
+    { materia: "Organización de computadoras I ", Año: "Primer año", Estado: "Consultar" }
 ];
 
 let contenedor = document.getElementById("contenedor");
@@ -21,14 +21,14 @@ planDeEstudio.forEach((item) => {
     let article = document.createElement("div");
     article.className = "articulos";
     article.innerHTML = `
-            <p> Materia: ${item.materia} </p>
-            <p> año: ${item.año}</p>
+            <p> ${item.materia} </p>
+            <p> Año: ${item.Año}</p>
     `;
     materias.append(article);
 
     let div = document.createElement("button");
     div.className = "botton";
-    div.innerText = `Estado: ${item.estado}`;
+    div.innerText = `Estado: ${item.Estado}`;
 
     materias.append(div);
 

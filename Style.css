@@ -15,16 +15,16 @@ body{
     font-weight: bolder;
     text-align: center;
 }
+footer p, .subEncabezado h3{
+    text-align: left;
+    margin-inline: 10px
+}
 
 .subEncabezado{
     color: rgb(24, 24, 119);
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid ;
-    text-align:left;
-}
-.subEncabezado h3{
-    margin-inline: 10px;
 }
 
 #materias{

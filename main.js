@@ -34,8 +34,6 @@ planDeEstudio.forEach((item) => {
 
     //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
-        div.className = "bottonClick";
-        article.className = "articulosClick";
         function consultarNota() {
 
             Swal.fire({
@@ -52,6 +50,8 @@ planDeEstudio.forEach((item) => {
                             localStorage.setItem("estado", JSON.stringify(estado));// Guarda el estado en localStorage
                             Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`)
                             div.innerText = `${estado}`;
+                            div.className = "bottonClick";
+                            article.className = "articulosClick";
 
                         } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                             let estado = "Regular";

@@ -20,7 +20,11 @@ body{
     color: rgb(24, 24, 119);
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-inline: 1rem;
+    border-bottom: 2px solid ;
+    text-align:left;
+}
+.subEncabezado h3{
+    margin-inline: 10px;
 }
 
 #materias{
@@ -34,13 +38,8 @@ body{
 #materias1{
     grid-template-columns: repeat(1, 900px);
     grid-template-rows: repeat(8, 90px);
-    background-color: rgb(51, 24, 168);
     border-bottom: 1px;
     padding: 2rem;
-}
-
-#materias1 div{
-    margin-top: 2rem;
 }
 
 .articulos{
@@ -50,9 +49,10 @@ body{
     text-align: center;
     grid-template-columns: repeat(2, 500px);
     padding: 2rem;
-    background-color: rgb(195, 255, 127);
-    border: 2px solid black;
+    background-color: rgb(100, 100, 177);
     margin: 0;
+    color: rgb(36, 36, 90);
+    font-weight: bolder;
 }
 
 .botton{
@@ -64,6 +64,7 @@ body{
     text-transform: uppercase;
     padding: 1rem;
     border: none;
+    margin-bottom: 2rem;
 }
 
 .inputs p{

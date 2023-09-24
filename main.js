@@ -13,6 +13,7 @@ const planDeEstudio = [
 let contenedor = document.getElementById("contenedor");
 let materias = document.getElementById("materias1");
 let consultaNota = document.getElementById("consultaNota");
+let materiasAdicionales = document.getElementById("MateriaAdicionales");
 
 
 //DOM
@@ -84,3 +85,16 @@ planDeEstudio.forEach((item) => {
         consultarNota();
     })
 });
+
+fetch("./document.json")
+    .then( (response) => response.json())
+    .then( (data) => {
+
+        data.forEach((nombre) => {
+            const dive = document.createElement('div')
+            dive.className = "MateriasAdicionales";
+            dive.innerHTML = `<p>${nombre.Materia}<p>`; 
+            materiasAdicionales.append(dive)
+        });
+    });
+

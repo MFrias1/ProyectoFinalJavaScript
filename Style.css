@@ -32,7 +32,6 @@ footer p, .subEncabezado h3{
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
 }
 
 #materias1{
@@ -98,4 +97,11 @@ footer p, .subEncabezado h3{
     width: 100%;
     height: fit-content;
     margin-inline: none;
+}
+.MateriasAdicionales{
+    background-color: aqua;
+    display: flex;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 10px;
 }

@@ -6,7 +6,7 @@
 //Listado de materias con Array/objetos.
 const planDeEstudio = [
     { materia: "Matemática para informática I ", Año: "Primer año", Estado: "Consultar" }, { materia: "Organización de computadoras II", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación ", Año: "Primer año", Estado: "Consultar" }, { materia: "Inglés I", Año: "primer año", Estado: "Consultar" },
-    { materia: "Introducción a lógica y problemas computacionales ", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación", Año: "Primer año", Estado: "Consultar" }, { materia: "Taller de intérpretes de comandos", Año: "Primer año", Estado: "Consultar" },
+    { materia: "Introducción a lógica y problemas computacionales ", Año: "Primer año", Estado: "Consultar" }, { materia: "Taller de intérpretes de comandos", Año: "Primer año", Estado: "Consultar" },
     { materia: "Organización de computadoras I ", Año: "Primer año", Estado: "Consultar" }
 ];
 
@@ -36,14 +36,15 @@ planDeEstudio.forEach((item) => {
     div.addEventListener("click", () => {
 
         function consultarNota() {
+
             Swal.fire({
                 title: 'Consulta tu estado académico',
                 html: "<div class=inputs><div><input id=primerNota type='text' required><p>Nota del primer parcial</p></input></div> <div><input id=segundaNota type='text' required></input><p>Nota del segundo parcial</p></div> </div>",
                 confirmButtonColor: 'rgb(36, 36, 90);',
                 confirmButtonText: 'Consultar',
             }).then((result) => {
-                if (result.isConfirmed) {
 
+                if (result.isConfirmed) {
                     function notafinal() {
                         if ((((primerNota.value < 4) && (primerNota.value > 0)) && ((segundaNota.value < 4) && (segundaNota.value > 0))) || (((primerNota.value <= 3) && (primerNota.value > 0)) && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value < 4)) {
                             let estado = "Reprobado";
@@ -82,6 +83,5 @@ planDeEstudio.forEach((item) => {
             });
         };
         consultarNota();
-
     })
 });

@@ -34,7 +34,8 @@ planDeEstudio.forEach((item) => {
 
     //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
-
+        div.className = "bottonClick";
+        article.className = "articulosClick";
         function consultarNota() {
 
             Swal.fire({

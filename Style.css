@@ -43,28 +43,41 @@ footer p, .subEncabezado h3{
 }
 
 .articulos{
+    background-color: rgb(100, 100, 177);
+}
+.articulos, .articulosClick{
     display: grid;
     justify-content: center;
     align-items: center;
     text-align: center;
     grid-template-columns: repeat(2, 500px);
     padding: 2rem;
-    background-color: rgb(100, 100, 177);
     margin: 0;
     color: rgb(36, 36, 90);
     font-weight: bolder;
 }
 
 .botton{
+    background-color: rgb(36, 36, 90);
+}
+
+.botton, .bottonClick{
     width: 100%;
     text-align: center;
-    background-color: rgb(36, 36, 90);
     color: white;
     font-weight: bolder;
     text-transform: uppercase;
     padding: 1rem;
     border: none;
     margin-bottom: 2rem;
+}
+
+.bottonClick, .articulosClick{
+    background-color: rgb(143, 15, 15);
+    color: white;
+}
+.articulosClick{
+    background-color: rgb(167, 33, 33);
 }
 
 .inputs p{

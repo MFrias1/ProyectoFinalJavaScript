@@ -35,47 +35,53 @@ planDeEstudio.forEach((item) => {
     //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
 
-        Swal.fire({
-            title: 'Consulta tu estado académico',
-            html: "<div class=inputs><div><input id=primerNota type='text' required><p>Nota del primer parcial</p></input></div> <div><input id=segundaNota type='text' required></input><p>Nota del segundo parcial</p></div> </div>",
-            confirmButtonColor: 'rgb(36, 36, 90);',
-            confirmButtonText: 'Consultar',
-        }).then((result) => {
-            if (result.isConfirmed) {
+        function consultarNota() {
+            Swal.fire({
+                title: 'Consulta tu estado académico',
+                html: "<div class=inputs><div><input id=primerNota type='text' required><p>Nota del primer parcial</p></input></div> <div><input id=segundaNota type='text' required></input><p>Nota del segundo parcial</p></div> </div>",
+                confirmButtonColor: 'rgb(36, 36, 90);',
+                confirmButtonText: 'Consultar',
+            }).then((result) => {
+                if (result.isConfirmed) {
 
-                function notafinal() {
-                    if ( (((primerNota.value < 4) && (primerNota.value >=0 )) && ((segundaNota.value < 4)&& (segundaNota.value >=0 ))) || (((primerNota.value <= 3) && (primerNota.value >=0 )) && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value <4)) {
-                        let estado = "Reprobado";
-                        localStorage.setItem("estado", JSON.stringify(estado));// Guarda el estado en localStorage
-                        Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`)
-                        div.innerText=`${estado}`;
+                    function notafinal() {
+                        if ((((primerNota.value < 4) && (primerNota.value > 0)) && ((segundaNota.value < 4) && (segundaNota.value > 0))) || (((primerNota.value <= 3) && (primerNota.value > 0)) && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value < 4)) {
+                            let estado = "Reprobado";
+                            localStorage.setItem("estado", JSON.stringify(estado));// Guarda el estado en localStorage
+                            Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`)
+                            div.innerText = `${estado}`;
 
-                    } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
-                        let estado = "Regular";
-                        localStorage.setItem("estado", JSON.stringify(estado));
-                        Swal.fire(text = "Deberás rendir un examen final")
-                        div.innerText=`${estado}`;
+                        } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
+                            let estado = "Regular";
+                            localStorage.setItem("estado", JSON.stringify(estado));
+                            Swal.fire(text = "Deberás rendir un examen final")
+                            div.innerText = `${estado}`;
 
-                    } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
-                        let estado = "Promocionado";
-                        localStorage.setItem("estado", JSON.stringify(estado));
-                        Swal.fire(text = "¡Felicidades! Promocionaste la materia")
-                        div.innerText = `${estado}`;
+                        } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
+                            let estado = "Promocionado";
+                            localStorage.setItem("estado", JSON.stringify(estado));
+                            Swal.fire(text = "¡Felicidades! Promocionaste la materia")
+                            div.innerText = `${estado}`;
 
-                    } else {
-                        while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value == 0 && segundaNota.value == 0 ) || (primerNota.value > 10 && segundaNota.value > 10)) {
-                            Swal.fire(text = "Intentalo nuevamente")
-                            notafinal()
-                            break;
+                        } else {
+                            while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value > 10 && segundaNota.value > 10)) {
+                                Swal.fire({
+                                    title: "Intentalo nuevamente",
+                                    confirmButtonText: 'Ok',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        consultarNota();
+                                    }
+                                })
+                                break;
+                            }
                         }
-                    }
-                    
+                    };
+                    notafinal();
                 };
-             notafinal();
-            };
-        })
-                
-        
+            });
+        };
+        consultarNota();
 
     })
 });

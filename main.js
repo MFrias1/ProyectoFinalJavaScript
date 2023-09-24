@@ -5,7 +5,7 @@
 
 //Listado de materias con Array/objetos.
 const planDeEstudio = [
-    { materia: "Matemática para informática I ", Año: "Primer año", Estado: "Consultar" }, { materia: "Organización de computadoras II", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación ", Año: "Primer año", estado: "Consultar" }, { materia: "Inglés I", Año: "primer año", Estado: "Consultar" },
+    { materia: "Matemática para informática I ", Año: "Primer año", Estado: "Consultar" }, { materia: "Organización de computadoras II", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación ", Año: "Primer año", Estado: "Consultar" }, { materia: "Inglés I", Año: "primer año", Estado: "Consultar" },
     { materia: "Introducción a lógica y problemas computacionales ", Año: "Primer año", Estado: "Consultar" }, { materia: "Sistemas de comunicación", Año: "Primer año", Estado: "Consultar" }, { materia: "Taller de intérpretes de comandos", Año: "Primer año", Estado: "Consultar" },
     { materia: "Organización de computadoras I ", Año: "Primer año", Estado: "Consultar" }
 ];

@@ -66,3 +66,22 @@ body{
     border: none;
 }
 
+.inputs p{
+    display: inline-block;
+    width: 53%;
+    margin-inline: 2px;
+}
+.inputs{
+    display: grid;
+    grid-template-columns: 90%;
+    grid-template-rows: repeat(2, 100%);
+    justify-content: center;
+    align-items: center;
+}
+.inputs div{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: fit-content;
+    margin-inline: none;
+}

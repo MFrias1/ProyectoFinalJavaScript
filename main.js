@@ -21,15 +21,13 @@ planDeEstudio.forEach((item) => {
     let article = document.createElement("div");
     article.className = "articulos";
     article.innerHTML = `
-            <p> ${item.materia} </p>
-            <p> Año: ${item.Año}</p>
-    `;
+        <p> ${item.materia} </p>
+        <p> Año: ${item.Año}</p>`;
     materias.append(article);
 
     let div = document.createElement("button");
     div.className = "botton";
     div.innerText = `Estado: ${item.Estado}`;
-
     materias.append(div);
 
     //VENTANA EMERGENTE, EVENTO
@@ -50,8 +48,8 @@ planDeEstudio.forEach((item) => {
                             localStorage.setItem("estado", JSON.stringify(estado));// Guarda el estado en localStorage
                             Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`)
                             div.innerText = `${estado}`;
-                            div.className = "bottonClick";
-                            article.className = "articulosClick";
+                            div.className = "bottonClickReprobado";
+                            article.className = "articulosClickReprobado";
 
                         } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                             let estado = "Regular";

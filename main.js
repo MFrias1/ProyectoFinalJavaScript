@@ -49,18 +49,22 @@ planDeEstudio.forEach((item) => {
                             div.innerText = `${estado}`;
                             div.className = "bottonClickReprobado";
                             article.className = "articulosClickReprobado";
-
+                           
                         } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                             let estado = "Regular";
                             localStorage.setItem("estado", JSON.stringify(estado));
                             Swal.fire(text = "Deberás rendir un examen final")
                             div.innerText = `${estado}`;
+                            article.className = "articulos";
+                            div.className = "botton";
 
                         } else if (primerNota.value >= 6 && segundaNota.value >= 6) {
                             let estado = "Promocionado";
                             localStorage.setItem("estado", JSON.stringify(estado));
                             Swal.fire(text = "¡Felicidades! Promocionaste la materia")
                             div.innerText = `${estado}`;
+                            article.className = "articulos";
+                            div.className = "botton";
 
                         } else {
                             while ((primerNota.value != Number && segundaNota.value != Number) || (primerNota.value == 0 && segundaNota.value == 0) || (primerNota.value > 10 && segundaNota.value > 10)) {
@@ -94,13 +98,19 @@ fetch("./document.json")
             dive.innerHTML = `
             <p>${nombre.Materia}<p>`;
             materiasAdicionales.append(dive);
-            dive.addEventListener("click", () => {
-                Toastify({
-                    text: "Para cursar estas materias deberás aprobar todas las materias del primer año",
-                    duration: 3000,
-                    
-                }).showToast();
-            });
-        });
+            function consultarEstado(){
+                dive.addEventListener("click", () => {
+                    Toastify({
+                        text: "Para cursar estas materias deberás aprobar todas las materias del primer año",
+                        duration: 3000,
+                        
+                    }).showToast();
+                });
+            }
+            consultarEstado();
+        })
     });
+
+
+
 

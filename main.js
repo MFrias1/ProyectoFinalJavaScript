@@ -1,7 +1,7 @@
 
 /*consultar el estado academico del estudiante 
 
-/*Debo incluir promesas con fetch/, cargar datos desde JSON local. */
+, cargar datos desde JSON local. */
 
 //Listado de materias con Array/objetos.
 const planDeEstudio = [
@@ -93,8 +93,9 @@ fetch("./document.json")
         data.forEach((nombre) => {
             const dive = document.createElement('div')
             dive.className = "MateriasAdicionales";
-            dive.innerHTML = `<p>${nombre.Materia}<p>`; 
-            materiasAdicionales.append(dive)
+            dive.innerHTML = `
+            <p>${nombre.Materia}<p>`; 
+            materiasAdicionales.append(dive);
         });
     });
 

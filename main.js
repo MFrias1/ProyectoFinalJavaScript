@@ -1,7 +1,5 @@
 
-/*consultar el estado academico del estudiante 
-
-, cargar datos desde JSON local. */
+/*consultar el estado academico del estudiante */
 
 //Listado de materias con Array/objetos.
 const planDeEstudio = [

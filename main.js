@@ -30,6 +30,7 @@ planDeEstudio.forEach((item) => {
 
     //VENTANA EMERGENTE, EVENTO
     div.addEventListener("click", () => {
+
         function consultarNota() {
 
             Swal.fire({
@@ -84,14 +85,22 @@ planDeEstudio.forEach((item) => {
 });
 
 fetch("./document.json")
-    .then( (response) => response.json())
-    .then( (data) => {
+    .then((response) => response.json())
+    .then((data) => {
 
         data.forEach((nombre) => {
-            const dive = document.createElement('div')
+            let dive = document.createElement('div')
             dive.className = "MateriasAdicionales";
             dive.innerHTML = `
-            <p>${nombre.Materia}<p>`; 
+            <p>${nombre.Materia}<p>`;
             materiasAdicionales.append(dive);
+            dive.addEventListener("click", () => {
+                Toastify({
+                    text: "Para cursar estas materias deberás aprobar todas las materias del primer año",
+                    duration: 3000,
+                    
+                }).showToast();
+            });
         });
     });
+

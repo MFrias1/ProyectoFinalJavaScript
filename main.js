@@ -103,7 +103,9 @@ fetch("./document.json")
                     Toastify({
                         text: "Para cursar estas materias deberás aprobar todas las materias del primer año",
                         duration: 3000,
-                        
+                        style: {
+                            background: "#000000",
+                        }
                     }).showToast();
                 });
             }

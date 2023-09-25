@@ -42,7 +42,7 @@ planDeEstudio.forEach((item) => {
 
                 if (result.isConfirmed) {
                     function notafinal() {
-                        if ((((primerNota.value < 4) && (primerNota.value > 0)) && ((segundaNota.value < 4) && (segundaNota.value > 0))) || (((primerNota.value <= 3) && (primerNota.value > 0)) && segundaNota.value <= 10) || (primerNota.value <= 10 && segundaNota.value < 4)) {
+                        if ((((primerNota.value < 4) && (primerNota.value > 0)) && ((segundaNota.value < 4) && (segundaNota.value > 0))) || (((primerNota.value <= 3) && (primerNota.value > 0)) && ((segundaNota.value <= 10) && (segundaNota.value > 0))) || ((primerNota.value <= 10) && (primerNota.value > 0) && segundaNota.value < 4)) {
                             let estado = "Reprobado";
                             localStorage.setItem("estado", JSON.stringify(estado));// Guarda el estado en localStorage
                             Swal.fire(text = `No aprobaste, deberás recursar la materia el próximo cuatrimestre`)

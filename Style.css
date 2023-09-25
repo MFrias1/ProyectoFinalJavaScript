@@ -80,6 +80,10 @@ footer p, .subEncabezado h3, .subtituloMaterias h3{
     background-color: rgb(167, 33, 33);
 }
 
+.MateriasAdicionales div{
+    background-color: rgb(167, 33, 33);
+}
+
 .inputs p{
     display: inline-block;
     width: 53%;
@@ -117,3 +121,4 @@ footer p, .subEncabezado h3, .subtituloMaterias h3{
     color: white;
     font-weight: bolder;
 }
+

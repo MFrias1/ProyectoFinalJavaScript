@@ -14,6 +14,19 @@ let consultaNota = document.getElementById("consultaNota");
 let materiasAdicionales = document.getElementById("MateriaAdicionales");
 
 
+fetch("./document.json")
+    .then( (response) => response.json())
+    .then( (data) => {
+
+        data.forEach((nombre) => {
+            const dive = document.createElement('div')
+            dive.className = "MateriasAdicionales";
+            dive.innerHTML = `
+            <p>${nombre.Materia}<p>`; 
+            materiasAdicionales.append(dive);
+        });
+    });
+
 //DOM
 planDeEstudio.forEach((item) => {
 
@@ -49,6 +62,7 @@ planDeEstudio.forEach((item) => {
                             div.innerText = `${estado}`;
                             div.className = "bottonClickReprobado";
                             article.className = "articulosClickReprobado";
+                            dive.className="MateriasAdicionalesNoAutorizado";
 
                         } else if ((((primerNota.value > 3) && (primerNota.value < 6)) && (segundaNota.value < 11 && segundaNota.value > 3)) || (primerNota.value == 4 && segundaNota.value == 4) || ((primerNota.value < 11 && primerNota.value > 3) && segundaNota.value == 4)) {
                             let estado = "Regular";
@@ -83,17 +97,4 @@ planDeEstudio.forEach((item) => {
         consultarNota();
     })
 });
-
-fetch("./document.json")
-    .then( (response) => response.json())
-    .then( (data) => {
-
-        data.forEach((nombre) => {
-            const dive = document.createElement('div')
-            dive.className = "MateriasAdicionales";
-            dive.innerHTML = `
-            <p>${nombre.Materia}<p>`; 
-            materiasAdicionales.append(dive);
-        });
-    });
 
